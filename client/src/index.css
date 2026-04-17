@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors - Sentinel Aesthetic */
+  --color-primary: #202983;
+  --color-primary-container: #39429b;
+  --color-on-primary: #ffffff;
+  
+  --color-background: #f4faff;
+  --color-on-background: #0d1e25;
+  
+  --color-surface: #f4faff;
+  --color-surface-container-low: #e7f6ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-high: #d9ebf5;
+  --color-surface-container-highest: #d4e5ef;
+  
+  --color-on-surface: #0d1e25;
+  --color-on-surface-variant: #434652;
+  
+  --color-tertiary: #493100;
+  --color-tertiary-container: #674600;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-fixed: #ffdeac;
+
+  /* Typography */
+  --font-display: "Manrope", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  /* Animations */
+  --animate-fade-in: fade-in 0.5s ease-out;
+  --animate-scale-up: scale-up 0.3s ease-out;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scale-up {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-on-background font-body antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight text-on-surface;
+  }
+}
+
+@layer components {
+  /* No-Border Rule Implementation */
+  .sentinel-card {
+    @apply bg-surface-container-lowest rounded-3xl p-6 transition-all duration-300;
+    box-shadow: 0 40px 80px -20px rgba(13, 30, 37, 0.04);
+  }
+  
+  .sentinel-surface {
+    @apply bg-surface-container-low rounded-3xl;
+  }
+
+  .sentinel-glass {
+    @apply bg-white/60 backdrop-blur-xl border border-white/20;
+  }
+
+  /* Button Designs */
+  .btn-primary {
+    @apply bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-4 rounded-xl font-bold transition-all hover:shadow-lg hover:shadow-primary/20 active:scale-95 flex items-center gap-2;
+  }
+
+  .btn-secondary {
+    @apply bg-surface-container-high text-primary px-8 py-4 rounded-xl font-bold transition-all hover:bg-surface-container-highest flex items-center gap-2;
+  }
+
+  /* Status Badges */
+  .badge-success {
+    @apply bg-blue-100/50 text-primary px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider;
+  }
+  
+  .badge-warning {
+    @apply bg-tertiary-fixed text-tertiary px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-surface-container-highest/50 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-surface-container-highest;
+}
