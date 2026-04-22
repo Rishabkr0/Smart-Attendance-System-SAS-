@@ -233,7 +233,9 @@ const Dashboard = () => {
                                 >
                                     <option value="">Select Domain...</option>
                                     {subjects.map(sub => (
-                                        <option key={sub._id} value={sub._id}>{sub.name} ({sub.code})</option>
+                                        <option key={sub._id} value={sub._id}>
+                                            {sub.name === sub.code || sub.name.replace(/\s/g, '') === sub.code ? sub.name : `${sub.name} (${sub.code})`}
+                                        </option>
                                     ))}
                                 </select>
                                 <button onClick={startSession} className="btn-primary w-full md:w-auto justify-center">

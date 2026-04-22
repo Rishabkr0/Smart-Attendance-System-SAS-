@@ -15,6 +15,8 @@ const seed = async () => {
         await Admin.deleteMany({});
         await Subject.deleteMany({});
         await Session.deleteMany({});
+        await Student.deleteMany({});
+        await Attendance.deleteMany({});
 
         // Create Admin
         await Admin.create({
