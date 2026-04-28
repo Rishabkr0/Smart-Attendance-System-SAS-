@@ -158,6 +158,11 @@ const Login = () => {
                         </p>
                     </div>
                 </div>
+                <div className="mt-auto pt-12 text-center flex flex-wrap justify-center gap-x-8 gap-y-2 opacity-40 hover:opacity-100 transition-opacity">
+                    <Link to="/privacy-policy" className="text-[10px] font-black uppercase tracking-widest hover:text-primary transition-colors">Privacy Policy</Link>
+                    <Link to="/terms-of-service" className="text-[10px] font-black uppercase tracking-widest hover:text-primary transition-colors">Terms of Service</Link>
+                    <span className="text-[10px] font-black uppercase tracking-widest">© 2026 Sentinel AI</span>
+                </div>
             </div>
         </div>
     );

@@ -1,5 +1,5 @@
 import { Navigate, Outlet, Link, useNavigate, useLocation } from 'react-router-dom';
-import { Camera, Users, ClipboardList, LayoutDashboard, LogOut, ShieldCheck, Settings, HelpCircle, Activity } from 'lucide-react';
+import { Camera, Users, ClipboardList, LayoutDashboard, LogOut, ShieldCheck, Settings, HelpCircle, Activity, FileText, Bug, Headphones } from 'lucide-react';
 
 const Layout = () => {
   const navigate = useNavigate();
@@ -38,7 +38,7 @@ const Layout = () => {
           </div>
         </div>
 
-        <nav className="flex-1 px-4 space-y-1">
+        <nav className="flex-1 px-4 space-y-1 overflow-y-auto">
           <p className="px-4 text-[10px] uppercase tracking-[0.2em] font-bold text-on-surface-variant/50 mb-4 mt-6">Main System</p>
           {navItems.map((item) => {
             const isActive = location.pathname === item.to;
@@ -58,13 +58,25 @@ const Layout = () => {
             );
           })}
 
-          <p className="px-4 text-[10px] uppercase tracking-[0.2em] font-bold text-on-surface-variant/50 mb-4 mt-12">System</p>
-          <button className="flex items-center gap-3 w-full p-4 text-on-surface-variant hover:bg-surface-container-high rounded-2xl transition-all">
-             <Settings size={20} /> <span className="font-semibold text-sm">Settings</span>
-          </button>
-          <button className="flex items-center gap-3 w-full p-4 text-on-surface-variant hover:bg-surface-container-high rounded-2xl transition-all">
-             <HelpCircle size={20} /> <span className="font-semibold text-sm">Help Center</span>
-          </button>
+          <p className="px-4 text-[10px] uppercase tracking-[0.2em] font-bold text-on-surface-variant/50 mb-4 mt-12">Support</p>
+          <Link to="/contact-support" className={`flex items-center gap-3 p-4 rounded-2xl transition-all group ${location.pathname === '/contact-support' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'text-on-surface-variant hover:bg-surface-container-high'}`}>
+             <Headphones size={20} className={location.pathname === '/contact-support' ? '' : 'group-hover:text-primary transition-colors'} /> 
+             <span className="font-semibold text-sm">Contact Support</span>
+          </Link>
+          <Link to="/bug-report" className={`flex items-center gap-3 p-4 rounded-2xl transition-all group ${location.pathname === '/bug-report' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'text-on-surface-variant hover:bg-surface-container-high'}`}>
+             <Bug size={20} className={location.pathname === '/bug-report' ? '' : 'group-hover:text-red-500 transition-colors'} /> 
+             <span className="font-semibold text-sm">Report a Bug</span>
+          </Link>
+
+          <p className="px-4 text-[10px] uppercase tracking-[0.2em] font-bold text-on-surface-variant/50 mb-4 mt-12">Legal</p>
+          <Link to="/privacy-policy" className={`flex items-center gap-3 p-4 rounded-2xl transition-all group ${location.pathname === '/privacy-policy' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'text-on-surface-variant hover:bg-surface-container-high'}`}>
+             <ShieldCheck size={20} className={location.pathname === '/privacy-policy' ? '' : 'group-hover:text-primary transition-colors'} /> 
+             <span className="font-semibold text-sm">Privacy Policy</span>
+          </Link>
+          <Link to="/terms-of-service" className={`flex items-center gap-3 p-4 rounded-2xl transition-all group ${location.pathname === '/terms-of-service' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'text-on-surface-variant hover:bg-surface-container-high'}`}>
+             <FileText size={20} className={location.pathname === '/terms-of-service' ? '' : 'group-hover:text-primary transition-colors'} /> 
+             <span className="font-semibold text-sm">Terms of Service</span>
+          </Link>
         </nav>
 
         <div className="p-4 mt-auto">

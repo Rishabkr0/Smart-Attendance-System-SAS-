@@ -142,6 +142,18 @@ const StudentDashboard = () => {
                     </div>
                 </div>
             </main>
+            <footer className="max-w-7xl mx-auto px-6 py-12 border-t border-surface-container-high flex flex-col md:flex-row justify-between items-center gap-6">
+                <div className="flex items-center gap-3 opacity-50">
+                    <ShieldCheck size={20} />
+                    <span className="font-bold text-sm tracking-tight">Sentinel AI © 2026</span>
+                </div>
+                <div className="flex flex-wrap justify-center gap-8">
+                    <button onClick={() => navigate('/contact-support')} className="text-sm font-bold text-on-surface-variant hover:text-primary transition-colors">Contact Support</button>
+                    <button onClick={() => navigate('/bug-report')} className="text-sm font-bold text-on-surface-variant hover:text-red-500 transition-colors">Report Bug</button>
+                    <button onClick={() => navigate('/privacy-policy')} className="text-sm font-bold text-on-surface-variant hover:text-primary transition-colors">Privacy Policy</button>
+                    <button onClick={() => navigate('/terms-of-service')} className="text-sm font-bold text-on-surface-variant hover:text-primary transition-colors">Terms of Service</button>
+                </div>
+            </footer>
         </div>
     );
 };

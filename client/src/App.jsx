@@ -8,6 +8,11 @@ import AttendanceRecords from './pages/AttendanceRecords';
 import SelfEnrollment from './pages/SelfEnrollment';
 import StudentLogin from './pages/StudentLogin';
 import StudentDashboard from './pages/StudentDashboard';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
+import CookieConsent from './components/CookieConsent';
+import ContactSupport from './pages/ContactSupport';
+import BugReport from './pages/BugReport';
 
 function App() {
   return (
@@ -22,8 +27,13 @@ function App() {
           <Route path="scanner" element={<Scanner />} />
           <Route path="register-student" element={<RegisterStudent />} />
           <Route path="records" element={<AttendanceRecords />} />
+          <Route path="privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="terms-of-service" element={<TermsOfService />} />
+          <Route path="contact-support" element={<ContactSupport />} />
+          <Route path="bug-report" element={<BugReport />} />
         </Route>
       </Routes>
+      <CookieConsent />
     </Router>
   );
 }
